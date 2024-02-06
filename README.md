@@ -56,7 +56,7 @@ First prompt upon launch is a stripped down version while profile loads in backg
 - `Tab` to Menue Complete
 - `Right` to accept prediction word by word
 - `Ctrl+b` and `Ctrl+f` to move one character back and forth
-- `Alt+b~ and `Alt+f // Right` moves one word back or forward
+- `Alt+b` and `Alt+f // Right` moves one word back or forward
 
 ## Arch WSL
 ### disable WSLg (prevent Terminal loss of focus)
