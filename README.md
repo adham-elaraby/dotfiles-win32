@@ -1,7 +1,8 @@
 # dotfiles-win32
-My config files for Windows 10
+Powershell and WSL setup for better experience.
+Sets up a custom ps prompt, adds autocomplete and predictions, and custom keybindings. While lazy loading the profile in the background for quick prompt access.
 
-
+![screenshot-setup](https://github.com/adham-elaraby/dotfiles-win32/assets/63326537/9fb7e386-e8e7-4625-b80d-e3f27bf8d013)
 
 
 ## Scoop dependencies
