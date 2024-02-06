@@ -40,7 +40,7 @@ Sets up a custom ps prompt, adds autocomplete and predictions, and custom keybin
 - AltDrag (fork available)
 - f.lux
 - GoldenDict
-- dwm-win32
+- dwm-win32 ([adham-elaraby/dwm-win32](https://github.com/adham-elaraby/dwm-win32)) 
 - fd
 - which
 - posh-git
@@ -87,6 +87,13 @@ Then check to see what libedit version is available in the libs directory and sy
 Check again for any unfound libraries. In mycase I still needed `intel-gmmlib` as seen by `libigdmm.so.12 (not found)`
 `sudo pacman -S intel-gmmlib`
 
+## Windows Group Policy Edits
+### Disable Win Key shortcuts
+You can try enable gpedit through the `gpedit-enabler.bat` script in Scripts
+1. Type Edit group policy in the Start menu search bar.
+2. Right-click on the Best match result and select Run as administrator.
+3. Navigate to User Configuration > Administrative Templates > Windows Components > File Explorer.
+4. Double-click on the Turn off Windows Key Hotkeys option on the right-hand side.
 
 ## Aliases to consider
 ### Git functions
