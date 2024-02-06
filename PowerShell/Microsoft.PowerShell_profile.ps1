@@ -251,6 +251,8 @@ Import-Module -Name PSReadLine
 $env:FZF_DEFAULT_COMMAND='fd --ignore-file .global-gitignore'
 $env:FZF_ALT_C_COMMAND='fd -t d --ignore-file .global-gitignore'
 $env:FZF_CTRL_T_COMMAND='fd --ignore-file .global-gitignore'
+$env:EDITOR = "nvim"
+$env:VISUAL = "nvim"
 
 #aliases
 function open { ii @Args }
@@ -264,7 +266,7 @@ Set-PSReadlineOption -EditMode emacs
 # Remove some default keybindings
 Remove-PSReadLineKeyHandler -Key RightArrow
 Remove-PSReadLineKeyHandler -Chord 'Alt+Backspace'
-Remove-PSReadLineKeyHandler -Chord 'Alt+b'
+#Remove-PSReadLineKeyHandler -Chord 'Alt+b'
 Remove-PSReadLineKeyHandler -Chord 'Ctrl+t' # for PSFzf
 Remove-PSReadLineKeyHandler -Chord 'Ctrl+r' # for PSFzf
 
