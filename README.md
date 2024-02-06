@@ -217,6 +217,7 @@ function projects {
 ```
 
 ## TODOs:
+- [ ] Research into [mikebattista/PowerShell-WSL-Interop](https://github.com/mikebattista/PowerShell-WSL-Interop) for the possibility of a wsl1 interop with pwsh
 - [ ] Create a light WSL 1 TMUX Container for pwsh as detailed [here](https://superuser.com/questions/408874/tmux-screen-alternative-for-powershell)
 - [ ] move to zsh? or bashrc and bashrc_noclear
 - [ ] update pwsh config to reflect my functions for launching arch instead of ubuntu
