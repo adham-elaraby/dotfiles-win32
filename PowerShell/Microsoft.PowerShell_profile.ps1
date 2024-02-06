@@ -302,7 +302,7 @@ function prompt {
     }
 
     $global:ompjob = Start-Job {(@(&starship init powershell) -join "`n")};
-    #write-host -ForegroundColor Blue "Loading `$profile in the background..."
+    write-host -ForegroundColor Blue "Loading `$profile in the background..."
     #Write-Host -ForegroundColor Green -NoNewline "  $($executionContext.SessionState.Path.CurrentLocation) ".replace($HOME, '~');
     write-host -ForegroundColor White -NoNewline " pwsh "
     Write-Host -ForegroundColor Cyan "$($executionContext.SessionState.Path.CurrentLocation) ".replace($HOME, '󰋜 ~');
