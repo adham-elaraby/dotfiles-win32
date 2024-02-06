@@ -1,0 +1,78 @@
+# ~/.config/starship.toml win
+
+add_newline = true
+command_timeout = 1000
+format = """$os$username$hostname$kubernetes$directory$git_branch$git_status
+$character"""
+
+# Drop ugly default prompt characters
+[character]
+#success_symbol = ''
+#error_symbol = ''
+success_symbol = "[❯](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](bold red)"
+vimcmd_symbol = '[V](bold green) '
+# ---
+
+[os]
+format = '[$symbol](bold white) '   
+disabled = false
+
+[os.symbols]
+Windows = ' pwsh'
+Arch = '󰣇'
+Ubuntu = ''
+Macos = '󰀵'
+
+
+# ---
+
+# Shows the username
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[$user]($style) '
+disabled = true
+show_always = true
+
+# Shows the hostname
+[hostname]
+ssh_only = true
+format = 'on [$hostname](bold yellow) '
+disabled = false
+
+# Shows current directory
+[directory]
+truncation_length = 10
+truncate_to_repo = true # truncates directory to root folder if in github repo
+home_symbol = '󰋜 ~'
+read_only_style = '197'
+read_only = '  '
+#format = 'at [$path]($style)[$read_only]($read_only_style) '
+
+# Shows current git branch
+[git_branch]
+symbol = '󰘬 '
+format = 'on [$symbol$branch]($style)'
+truncation_length = 20
+ignore_branches = ['master', 'main']
+style = 'bold green'
+
+[git_status]
+format = '[$all_status$ahead_behind]($style) '
+style = 'bold red'
+ignore_submodules = true
+#untracked = ""
+
+# Shows kubernetes context and namespace
+[kubernetes]
+format = 'via [󱃾 $context\($namespace\)](bold purple) '
+disabled = false
+
+# ---
+
+[vagrant]
+disabled = true
+
+[docker_context]
+disabled = true

@@ -1,0 +1,1705 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.PowerShell.Tools.AzPredictor</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext">
+            <summary>
+            The class for the current Azure PowerShell context.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.AzVersion">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.Cohort">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.HashUserId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.MacAddress">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.OSVersion">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.PowerShellVersion">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.ModuleVersion">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.IsInternal">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.UpdateContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.GetUserAccountId">
+            <summary>
+            Gets the user account id if the user logs in, otherwise empty string.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.GetAzVersion">
+            <summary>
+            Gets the latest version from the loaded Az modules.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.GenerateSha256HashString(System.String)">
+            <summary>
+            Generate a SHA256 Hash string from the originInput.
+            </summary>
+            <param name="originInput"></param>
+            <returns>The Sha256 hash, or empty if the input is only whitespace</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzContext.GetMACAddress">
+            <summary>
+            Get the MAC address of the default NIC, or null if none can be found.
+            </summary>
+            <returns>The MAC address of the defautl nic, or null if none is found.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor">
+            <summary>
+            The implementation of a <see cref="T:System.Management.Automation.Subsystem.Prediction.ICommandPredictor"/> to provide suggestions in PSReadLine.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.Name">
+            <inhericdoc />
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.Description">
+            <inhericdoc />
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.Id">
+            <inhericdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.#ctor">
+            <summary>
+            Constructs a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor"/> to use in PowerShell's prediction subsystem.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.#ctor(Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzPredictorService,Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient,Microsoft.Azure.PowerShell.Tools.AzPredictor.Settings,Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext)">
+            <summary>
+            Constructs a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor"/> for testing.
+            </summary>
+            <param name="service">The service that provides the suggestion.</param>
+            <param name="telemetryClient">The client to collect telemetry.</param>
+            <param name="settings">The settings for <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor"/>.</param>
+            <param name="azContext">The Az context which this module runs in.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.Dispose">
+            <inhericdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.CanAcceptFeedback(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.Management.Automation.Subsystem.Prediction.PredictorFeedbackKind)">
+            <inhericdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.OnCommandLineAccepted(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.Collections.Generic.IReadOnlyList{System.String})">
+            <inhericdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.GetSuggestion(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.Management.Automation.Subsystem.Prediction.PredictionContext,System.Threading.CancellationToken)">
+            <inhericdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.OnSuggestionDisplayed(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.UInt32,System.Int32)">
+            <inhericdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.OnSuggestionAccepted(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.UInt32,System.String)">
+            <inhericdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.RegisterDisposableObject(System.IDisposable)">
+            <summary>
+            Addds an object that's not created by <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor"/> to the list to be disposed in
+            <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.Dispose"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictorInitializer">
+            <summary>
+            The initializer to register the predictor implementation at module loading time.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictorInitializer.OnImport">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictorCleanup">
+            <summary>
+            Clean up the registeration when unloading the module.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictorCleanup.OnRemove(System.Management.Automation.PSModuleInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants">
+            <summary>
+            The constants shared in the project.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.AzCommandMoniker">
+            <summary>
+            The value to check to determine if it's an Az command.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.CohortCount">
+            <summary>
+            The value of number of cohort groups.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.CommandPlaceholder">
+            <summary>
+            The value to use when the command isn't an Az command.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.CommandConcatenator">
+            <summary>
+            The character to use when we join the commands together.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.CommandHistoryCountToProcess">
+            <summary>
+            The number of command to use from the history.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.CommandParameterSeperator">
+            <summary>
+            The character to join the command name and parameter and the value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.CommandsEndpoint">
+            <summary>
+            The service endpoint to get the list of commands.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.CommandSeparator">
+            <summary>
+            The character that separates verb and noun in the cmdlet.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.DashParameterName">
+            <summary>
+            The special parameter name for "-" which is not a parameter name but an indication of a parameter.
+            </summary>
+            <remarks>
+            In the case of the user input <c>Get-AzContext -</c>, we need to know that the command name is complete and there
+            is a parameter. So we use ths special parameter name as an indicator.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.MockPSHostName">
+            <summary>
+            The name of the mock ps host/console.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.PredictionsEndpoint">
+            <summary>
+            The service endpoint to get the list of suggestions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.ParameterIndicator">
+            <summary>
+            The character that begins a parameter.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.ParameterValueSeperator">
+            <summary>
+            The seperator used in parameter name and value pair which is in the form -Name:Value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.ParameterValueMask">
+            <summary>
+            The substitute for the parameter value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.SettingsFileName">
+            <summary>
+            The setting file name.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorConstants.AzureProfileDirectoryName">
+            <summary>
+            The azure profile directory name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorData">
+            <summary>
+            The data that can be accessed from a PowerShell script.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorData.ShowSurveyOnIdle">
+            <summary>
+            Gets or sets the flag to show the survey message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService">
+            <summary>
+            A service that connects to Aladdin endpoints to get the model and provides suggestions to PSReadLine.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.CorrelationIdHeader">
+            <summary>
+            The name of the header value that contains the platform correlation id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService._commandBasedPredictor">
+            <summary>
+            The history command line and the predictor based on that.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService._fallbackPredictor">
+            <summary>
+            The predictor to used when <see cref="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService._commandBasedPredictor"/> doesn't return enough suggestions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService._commandToRequestPrediction">
+            <summary>
+            The history command line that we request prediction for.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService._allPredictiveCommands">
+            <summary>
+            All the command lines we can provide as suggestions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.#ctor(System.String,Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient,Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService"/>.
+            </summary>
+            <param name="serviceUri">The URI of the Aladdin service.</param>
+            <param name="telemetryClient">The telemetry client.</param>
+            <param name="azContext">The Az context which this module runs in.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.#ctor(Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext)">
+            <summary>
+            A default constructor for the derived class. This is used in test cases.
+            </summary>
+            <param name="azContext">The Az context which this module runs in.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.GetSuggestion(System.Management.Automation.Subsystem.Prediction.PredictionContext,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+            <remarks>
+            Tries to get the suggestions for the user input from the command history. If that doesn't find
+            <paramref name="suggestionCount"/> suggestions, it'll fallback to find the suggestion regardless of command history.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.RequestPredictionsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.RecordHistory(System.Management.Automation.Language.CommandAst)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.IsSupportedCommand(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.IsRecognizedCommand(System.String)">
+            <summary>
+            Checks whether the given <paramref name="cmd" /> is in the command list.
+            </summary>
+            <param name="cmd">The command to check if it's in the list.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.RequestAllPredictiveCommands">
+            <summary>
+            Requests a list of popular commands from service. These commands are used as fall back suggestion
+            if none of the predictions fit for the current input. This method should be called once per session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.SetFallbackPredictor(System.Collections.Generic.IList{Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand})">
+            <summary>
+            Sets the fallback predictor.
+            </summary>
+            <param name="commands">The command collection to set the predictor</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.SetCommandBasedPreditor(System.String,System.Collections.Generic.IList{Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand})">
+            <summary>
+            Sets the predictor based on the command history.
+            </summary>
+            <param name="commands">The commands that the suggestions are for</param>
+            <param name="suggestions">The suggestion collection to set the predictor</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.SetCommandToRequestPrediction(System.String)">
+            <summary>
+            Updates the command for prediction.
+            </summary>
+            <param name="command">The command for the new prediction</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictorService.GetCommandName(System.String)">
+            <summary>
+            Gets the command name for the whole line command which has the parameters.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine">
+            <summary>
+            A command line consists of the command name and the parameter set,
+            where the parameter set is a set of parameters (order independent) that go along with the command.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.Name">
+            <summary>
+            Gets the command name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.Description">
+            <summary>
+            Gets the description text for the command.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.ParameterSet">
+            <summary>
+            Gets the <see cref="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.ParameterSet"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.SourceText">
+            <summary>
+            Gets the text of the whole command line that is used to get the <see cref="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.Name" /> and <see cref="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.ParameterSet" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine.#ctor(Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand,Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext)">
+            <summary>
+            Create a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLine"/> from <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand" />.
+            </summary>
+            <param name="predictiveCommand">The command information.</param>
+            <param name="azContext">The current PowerShell conext.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineException">
+            <summary>
+            An exception that may occur while we're parsing or constructing the command line.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineException.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineException"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineException.#ctor(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineException"/> with a specific error message.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineException"/> with a specific error message and a reference to
+            the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor">
+            <summary>
+            This class query the command model from Aladdin service and return suggestions based on user input, for example,
+            when the user inputs "Connec", it returns "Connect-AzAccount".
+            </summary>
+            <remarks>
+            The suggestion returned to PSReadLine may not be the same as the model to generate the suggestion. The suggestion may
+            be adjusted based on user input.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor.#ctor(System.Collections.Generic.IList{Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand},Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterValuePredictor,Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient,Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor"/>.
+            </summary>
+            <param name="modelPredictions">List of suggestions from the model, sorted by frequency (most to least).</param>
+            <param name="parameterValuePredictor">Provide the prediction to the parameter values.</param>
+            <param name="telemetryClient">The telemetry client.</param>
+            <param name="azContext">The current PowerShell conext.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor.GetSuggestion(System.String,Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterSet,System.String,System.Collections.Generic.IDictionary{System.String,System.Int32},System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns suggestions given the user input.
+            </summary>
+            <param name="inputCommandName">The command name extracted from the user input.</param>
+            <param name="inputParameterSet">The parameter set extracted from the user input.</param>
+            <param name="rawUserInput">The string format of the command line from user input.</param>
+            <param name="presentCommands">Commands already present. Contents may be added to this collection.</param>
+            <param name="suggestionCount">The number of suggestions to return.</param>
+            <param name="maxAllowedCommandDuplicate">The maximum amount of the same commands in the list of predictions.</param>
+            <param name="cancellationToken">The cancellation token</param>
+            <returns>The collections of suggestions.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor.PredictRestOfParameters(System.Text.StringBuilder,System.String,System.Collections.Generic.IReadOnlyList{Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter},System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+            Appends unused parameters to the builder.
+            </summary>
+            <param name="builder">StringBuilder that aggregates the prediction text output.</param>
+            <param name="commandNoun">Command Noun.</param>
+            <param name="parameters">Chosen prediction parameters.</param>
+            <param name="usedParams">Set of used parameters for set.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor.DoesPredictionParameterSetMatchInput(System.Text.StringBuilder,Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterSet,System.String,Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterSet,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+            Determines if parameter set contains all of the parameters of the input.
+            </summary>
+            <param name="builder">StringBuilder that aggregates the prediction text output.</param>
+            <param name="inputParameters">Parsed ParameterSet from the user input AST.</param>
+            <param name="commandNoun">Command Noun.</param>
+            <param name="predictionParameters">Candidate prediction parameter set.</param>
+            <param name="usedParams">Set of used parameters for set.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor.BuildParameterValue(System.Text.StringBuilder,System.String,Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter)">
+             <summary>
+             Create the parameter values from the history commandlines.
+            
+             For example:
+             history command line
+             > New-AzVM -Name "TestVM" ...
+             prediction:
+             > Get-AzVM -VMName &lt;TestVM&gt;
+             "TestVM" is predicted for Get-AzVM.
+             </summary>
+             <param name="builder">The string builder to create the whole predicted command line.</param>
+             <param name="commandNoun">Command Noun.</param>
+             <param name="parameter">The parameter name and value from prediction.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLinePredictor.FindParameterPositionInSet(Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter,Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterSet,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+            Determines the index of the given parameter in the parameter set.
+            </summary>
+            <param name="parameter">The parameter name and its value.</param>
+            <param name="predictionSet">Prediction parameter set to find parameter position in.</param>
+            <param name="usedParams">Set of used parameters for set.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion">
+            <summary>
+            Represents the suggestions to show to the user and the related information of the suggestions.
+            </summary>
+            <remarks>
+            Because the performance requirement in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor.GetSuggestion(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.Management.Automation.Subsystem.Prediction.PredictionContext,System.Threading.CancellationToken)"/>,
+            it contains lists of each piece of information, for example, a collection of predictive suggestion and a list of
+            suggestion sources. Note that the count of each list should be the same. And each element in the list corresonds to
+            the element in other list at the same index.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.CollectionDefaultCapacity">
+            <summary>
+            Since PSReadLine can accept at most 10 suggestions, we pre-allocate that many items in the collection to avoid
+            re-allocation when we try to find the suggestion to return.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.PredictiveSuggestions">
+            <summary>
+            Gets the suggestions returned to show to the user. This can be adjusted from <see cref="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.SourceTexts"/> based on
+            the user input.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.SourceTexts">
+            <summary>
+            Gets the texts that <see cref="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.PredictiveSuggestions"/> is based on.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.SuggestionSources">
+            <summary>
+            Gets or sets the sources where the text is from.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.Count">
+            <summary>
+            Gets the number of suggestions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.AddSuggestion(System.Management.Automation.Subsystem.Prediction.PredictiveSuggestion,System.String)">
+            <summary>
+            Adds a new suggestion.
+            </summary>
+            <param name="predictiveSuggestion">The suggestion to show to the user.</param>
+            <param name="sourceText">The text that used to construct <paramref name="predictiveSuggestion"/>.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.AddSuggestion(System.Management.Automation.Subsystem.Prediction.PredictiveSuggestion,System.String,Microsoft.Azure.PowerShell.Tools.AzPredictor.SuggestionSource)">
+            <summary>
+            Adds a new suggestion.
+            </summary>
+            <param name="predictiveSuggestion">The suggestion to show to the user.</param>
+            <param name="sourceText">The text that used to construct <paramref name="predictiveSuggestion"/>.</param>
+            <param name="suggestionSource">The source where the suggestion is from.</param>
+            <returns>True if the suggestion is added. Otherwise, it returns false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion.UpdateSuggestionSource(System.Int32,Microsoft.Azure.PowerShell.Tools.AzPredictor.SuggestionSource)">
+            <summary>
+            Updates the suggestion source of a suggestion.
+            </summary>
+            <param name="index">The index of a suggestion.</param>
+            <param name="suggestionSource">The new suggestion source.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.BasePSCmdlet">
+            <summary>
+            Provides the common base class for creating a ps cmdlet.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.BasePSCmdlet.AdditionalTelemetryProperties">
+            <summary>
+            Gets and sets the properties in the telemetry event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.BasePSCmdlet.EndProcessing">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.DisableAzPredictor">
+            <summary>
+            <para type="synopsis">Cmdlet to disable Az Predictor and stop receiving suggestions</para>
+            <para type="description">Use this cmdlet to disable Az Predictor and stop receiving suggestions</para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.DisableAzPredictor.AllSession">
+            <summary>
+            <para type="description">Disable Az Predictor for the current and future PowerShell sessions.</para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.DisableAzPredictor.PassThru">
+            <summary>
+            <para type="description">Indicates whether the user would like to receive output.</para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.DisableAzPredictor.ProcessRecord">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.EnableAzPredictor">
+            <summary>
+            <para type="synopsis">Cmdlet to enable Az Predictor and start receiving suggestions</para>
+            <para type="description">Use this cmdlet to enable Az Predictor and start receiving suggestions</para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.EnableAzPredictor.AllSession">
+            <summary>
+            <para type="description">Enable Az Predictor for the current and future PowerShell sessions.</para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.EnableAzPredictor.PassThru">
+            <summary>
+            <para type="description">Indicates whether the user would like to receive output. </para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.EnableAzPredictor.ProcessRecord">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.OpenAzPredictorSurvey">
+            <summary>
+            <para type="synopsis">Cmdlet to open a survey link in the default browser</para>
+            <para type="description">This cmdlet opens a survey link in the default browser and writes the link to the output stream. All data from this survey will be anonymized. See the Microsoft Privacy Policy (https://privacy.microsoft.com/) for more information </para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.OpenAzPredictorSurvey.PassThru">
+            <summary>
+            <para type="description">Indicates whether the user would like to receive output. </para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.OpenAzPredictorSurvey.ProcessRecord">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.SendAzPredictorRating">
+            <summary>
+            <para type="synopsis">Cmdlet to send a rating between 1 and 5 about the suggestions provided by the Az.Tools.Predictor module</para>
+            <para type="description">This cmdlet sends the given rating about Az.Tools.Predictor to the server. Accepted values for the rating range 1 (poor) - 5 (great). All data from this survey will be anonymized. See the Microsoft Privacy Policy (https://privacy.microsoft.com/) for more information </para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.SendAzPredictorRating.PassThru">
+            <summary>
+            <para type="description">Indicates whether the user would like to receive output. </para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.SendAzPredictorRating.Rating">
+            <summary>
+            <para type="description">The rating of Az Predictor: 1 (poor) - 5 (great).</para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.SendAzPredictorRating.ProcessRecord">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext">
+            <summary>
+            Represents the current Azure PowerShell context.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.HashUserId">
+            <summary>
+            Gets the hashed user account id. A empty string if the user doesn't log in.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.MacAddress">
+            <summary>
+            Gets the hashed MAC address.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.OSVersion">
+            <summary>
+            Gets the OS where it's running on.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.PowerShellVersion">
+            <summary>
+            Gets the PowerShell version it's running on.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.ModuleVersion">
+            <summary>
+            Gets the version of this module.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.AzVersion">
+            <summary>
+            Gets the current Az module version.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.Cohort">
+            <summary>
+            Gets the group number of the cohort.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.IsInternal">
+            <summary>
+            Gets whether the user is an internal user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.DefaultRunspace">
+            <summary>
+            Gets the minimum PowerShell Runspace. This isn't the necessary the same one as the PowerShell environment that Az
+            Predictor is running on.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext.UpdateContext">
+            <summary>
+            Updates the Az context.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzPredictorService">
+            <summary>
+            The interface to provide the prediction results in PSReadLine.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzPredictorService.GetSuggestion(System.Management.Automation.Subsystem.Prediction.PredictionContext,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gest the suggestions for the user input.
+            </summary>
+            <param name="context">User input context from PSReadLine.</param>
+            <param name="suggestionCount">The number of suggestion to return.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="maxAllowedCommandDuplicate">The maximum amount of the same commnds in the list of predictions.</param>
+            <returns>The suggestions for <paramref name="context"/>. The maximum number of suggestions is <paramref name="suggestionCount"/>. A null will be returned if there the user input context isn't valid/supported at all.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzPredictorService.RequestPredictionsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)">
+            <summary>
+            Requests predictions, given a command string.
+            </summary>
+            <param name="commands">A list of commands.</param>
+            <param name="requestId">The guid to correlate the telemetry event and the http request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Null when no request is made. The boolean values indicates a request is made and whether it's successful.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzPredictorService.RecordHistory(System.Management.Automation.Language.CommandAst)">
+            <summary>
+            Record the history from PSReadLine.
+            </summary>
+            <param name="history">The last command in history.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzPredictorService.IsSupportedCommand(System.String)">
+            <summary>
+            Return true if command is part of known set of Az cmdlets, false otherwise.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter">
+            <summary>
+            The class represents a name-value pair of a parameter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter.Name">
+            <summary>
+            Gets the name of the parameter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter.Value">
+            <summary>
+            Gets or sets the valus of the parameter.
+            null if there is no valud is expected or set for this parameter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter.IsPositional">
+            <summary>
+            Gets the value to indicate whether it's a positional parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Parameter"/>
+            </summary>
+            <param name="name">The name of the parameter</param>
+            <param name="value">The value of the parameter. If the parameter is a switch parameter, it's null.</param>
+            <param name="isPositional">The value indicating whether it's a positional parameter.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterSet">
+            <summary>
+            Treating parameter lists as sets of parameters to show that parameter order
+            does not matter to resulting prediction - the prediction should adapt to the
+            order of the parameters typed by the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterSet.Parameters">
+            <summary>
+            Gets the list of the parameters with their names and values.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterValuePredictor">
+            <summary>
+            A predictor to learn and provide values for Azure PowerShell commands' parameters values.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterValuePredictor.ProcessHistoryCommand(System.Management.Automation.Language.CommandAst)">
+            <summary>
+            Process the command from history
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterValuePredictor.GetParameterValueFromCommand(System.String,System.String)">
+            <summary>
+            Gets the parameter value prediction from the previous Azure PowerShell command.
+            e.g. history command line
+            > New-AzVM -Name "TestVM" ...
+            prediction:
+            > Get-AzVM -VMName &lt;TestVM&gt;
+            "TestVM" is predicted for Get-AzVM.
+            </summary>
+            <param name="commandNoun">The command noun</param>
+            <param name="parameterName">The parameter name</param>
+            <returns>The parameter value from the history command. Null if that is not available.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.ParameterValuePredictor.ExtractLocalParameters(System.Management.Automation.Language.CommandAst)">
+             <summary>
+             Iterate over command elements to extract local parameter values.
+            
+             Store these values by a key
+             consisting of the suffix of the command + the parameter name.  There are some exceptions, e.g.
+             credential, location, where the parameter name itself is the key.
+            
+             For example, New-AzResourceGroup -Name Hello -Location 'EastUS' will store into local parameters:
+               ResourceGroupName => Hello
+               Location => 'EastUS'
+             </summary>
+             <param name="command">The command ast element</param>
+             <remarks>
+             This doesn't support positional parameter.
+             </remarks>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand">
+            <summary>
+            A model for the command predicted by the predictor service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand.Command">
+            <summary>
+            The command name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictiveCommand.Description">
+            <summary>
+            The description of the command.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Profile.AzurePSDataCollectionProfile">
+            <summary>
+            The profile about data collection in Azure PowerShell
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Profile.AzurePSDataCollectionProfile.Instance">
+            <summary>
+            Gets the singleton for <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Profile.AzurePSDataCollectionProfile"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Profile.AzurePSDataCollectionProfile.#ctor">
+            <summary>
+            Gets an instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Profile.AzurePSDataCollectionProfile"/>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Profile.AzurePSDataCollectionProfile.EnableAzureDataCollection">
+            <summary>
+            Gets or sets if the data collection is enabled.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException">
+            <summary>
+            An exception that may occur during the communication between the module and the server.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException.IsRequestSent">
+            <summary>
+            Gets and sets the value that indicates whether a request is sent to the server.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException.#ctor(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException"/> with a specific error message.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.ServiceRequestException"/> with a specific error message and a reference to
+            the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Settings">
+            <summary>
+            Represents the settings used in AzPredictor.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Settings.ContinueOnTimeout">
+            <summary>
+            Gets the value to indicate whether to ignore cancellation request and keep running.
+            This should be only set during debugging.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Settings.GetSettings">
+            <summary>
+            Gets an instance of the settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Settings.GetProfileSettings">
+            <summary>
+            Gets the settings from the user profile folder.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Settings.GetProfileSettingsFilePath">
+            <summary>
+            Gets the file path of the settings in the user profile folder.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.SuggestionSource">
+            <summary>
+            An enum for the source where we get the suggestion.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.SuggestionSource.None">
+            <summary>
+            There is no predictions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.SuggestionSource.StaticCommands">
+            <summary>
+            The suggestion is from the static command list. This doesn't take command history into account.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.SuggestionSource.PreviousCommand">
+            <summary>
+            The suggestion is from the list for outdated command history.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.SuggestionSource.CurrentCommand">
+            <summary>
+            The suggestion is from the list for latest command history.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionSession.IsSuggestionComplete">
+            <summary>
+            Whether the suggestions, displaying suggestions, and accepting suggestion are in the same telemetry event.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient">
+            <summary>
+            A telemetry client implementation to collect the data at the interested places, aggregate them and send it to
+            Application Insight.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient._telemetryClient">
+            <summary>
+            The client that sends the telemetry to the server.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient._telemetryDispatcher">
+            <summary>
+            The action to handle the <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData"/> in a thread pool.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient._userAcceptedAndSuggestion">
+            <summary>
+            The adjusted texts and the source text for the suggestion.
+            </summary>
+            <remarks>
+            We only access it in the thread pool which is to handle the data at the target side of the data flow.
+            We only handle one item at a time so there is no race condition.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.CachedAggregatedTelemetryData">
+            <summary>
+            The cached aggregated telemetry data sent when we process the command history data.
+            </summary>
+            <remarks>
+            We only access it in the thread pool which is to handle the data at the target side of the data flow.
+            We only handle one item at a time so there is no race condition.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.#ctor(Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext)">
+            <summary>
+            Constructs a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient"/>.
+            </summary>
+            <param name="azContext">The Az context which this module runs with.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnHistory(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnRequestPrediction(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnGetSuggestion(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnSuggestionDisplayed(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnSuggestionAccepted(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnLoadParameterMap(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnParseCommandLineFailure(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.OnGeneralException(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.GetApplicationInsightTelemetryClient">
+            <summary>
+            Gets the client that can send telemetry via Application Insight.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.DispatchTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData)">
+            <summary>
+            Dispatches <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData"/> according to its implementation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.SendAggregatedTelemetryData">
+            <summary>
+            Sends the aggregated telemetry data.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.SendTelemetry(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sends the telemetry event via Application Insight.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.IsDataCollectionAllowed">
+            <summary>
+            Check whether the data collection is opted in from user.
+            </summary>
+            <returns>true if allowed.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.FormatException(System.Exception)">
+            <summary>
+            Construct a string from an exception and the string is sent to telemetry.
+            The string should have minimum data that can help us to diagnose the exception
+            but not too excessive that may have PII.
+            </summary>
+            <param name="exception">The exception to construct the string from.</param>
+            <returns>A string to send to telemetry.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData)">
+            <summary>
+            Processes the telemetry with the command history.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData)">
+            <summary>
+            Processes the telemetry with the commands for prediction.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData)">
+            <summary>
+            Sends the telemetry with the suggestion returned to the user.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData)">
+            <summary>
+            Processes the telemetry about what suggestions are displayed to the user.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData)">
+            <summary>
+            Processes the telemetry with the suggestion returned to the user.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData)">
+            <summary>
+            Processes the telemetry when the parmaeter map is loaded.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData)">
+            <summary>
+            Processes the telemetry with the command line parsing information.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.ProcessTelemetryData(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData)">
+            <summary>
+            Processes the telemetry with the exception.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.CreateProperties(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData)">
+            <summary>
+            Add the common properties to the telemetry event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.SendException(System.String,Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData,System.Exception,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sends the exception event when there is an exception is thrown.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.AzPredictorTelemetryClient.SendAggregateTelemetryDataDuringSuggestionCycle(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData,System.Nullable{System.UInt32})">
+            <summary>
+            Sends the cached aggregated telemetry data when we're aggregating suggestion cycle related data.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnParseCommandLineFailure(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData.Command">
+            <summary>
+            Gets the command line being parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData.Exception">
+            <summary>
+            Gets the exception.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData"/>.
+            </summary>
+            <param name="command">The command line.</param>
+            <param name="exception">The exception that may be thrown.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnGeneralException(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData.Exception">
+            <summary>
+            Gets the exception.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData.#ctor(System.Exception)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData"/>.
+            </summary>
+            <param name="exception">The exception that is thrown.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnGetSuggestion(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.PropertyNameIsCancelled">
+            <summary>
+            The telemetry property name for "isCancelled".
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.PropertyNameFound">
+            <summary>
+            The telemetry property name for "Found".
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.PropertyNameSuggestionSessionId">
+            <summary>
+            The telemetry property name for "SuggestionSessionId".
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.PropertyNameUserInput">
+            <summary>
+            The telemetry property name fo "userInput".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.UserInput">
+            <summary>
+            Gets the user input.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.Suggestion">
+            <summary>
+            Gets the suggestions to return to the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.IsCancellationRequested">
+            <summary>
+            Gets whether the cancellation request is already set.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.Exception">
+            <summary>
+            Gets the exception if there is an error during the operation.
+            </summary>
+            <remarks>
+            OperationCanceledException isn't considered an error.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.SuggestionSessionId">
+            <summary>
+            Gets the id of the suggestion session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData.#ctor(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.UInt32,System.Management.Automation.Language.Ast,Microsoft.Azure.PowerShell.Tools.AzPredictor.CommandLineSuggestion,System.Boolean,System.Exception)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData"/>.
+            </summary>
+            <param name="client">The client that makes the call.</param>
+            <param name="suggestionSessionId">The suggestion session id.</param>
+            <param name="userInput">The user input that the <paramref name="suggestion"/> is for.</param>
+            <param name="suggestion">The suggestions returned for the <paramref name="userInput"/>.</param>
+            <param name="isCancellationRequested">Indicates if the cancellation has been requested.</param>
+            <param name="exception">The exception that is thrown if there is an error.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnHistory(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.PropertyNameHistory">
+            <summary>
+            The telemetry property name for "History".
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.PropertyNameSuccess">
+            <summary>
+            The telemetry property name for "Success".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.Command">
+            <summary>
+            Gets the history command line.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.Success">
+            <summary>
+            Gets whether the commdn line ran successfully.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData.#ctor(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData"/>.
+            </summary>
+            <param name="client">The client that makes the call.</param>
+            <param name="command">The history command line.</param>
+            <param name="success">Whether the <paramref name="command" /> ran successfully.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient">
+            <summary>
+            The telemetry client that collects data at the interested places.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.CommandId">
+            <summary>
+            Gets the id to identify the events proceeding to a CommandHistory
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.RequestId">
+            <summary>
+            Gets and sets the id to correlate the request and the server.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnHistory(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.HistoryTelemetryData)">
+            <summary>
+            Collects the event of the history command.
+            </summary>
+            <param name="telemetryData">The data to collect.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnRequestPrediction(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData)">
+            <summary>
+            Collects the event when a prediction is requested.
+            </summary>
+            <param name="telemetryData">The data to collect.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnGetSuggestion(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData)">
+            <summary>
+            Collects when we return a suggestion.
+            </summary>
+            <param name="telemetryData">The data to collect.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnSuggestionDisplayed(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData)">
+            <summary>
+            Collects when a suggestion is displayed.
+            </summary>
+            <param name="telemetryData">The data to collect.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnSuggestionAccepted(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData)">
+            <summary>
+            Collects when a suggestion is accepted.
+            </summary>
+            <param name="telemetryData">The data to collect.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnLoadParameterMap(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData)">
+            <summary>
+            Collects when we load parameter map file.
+            </summary>
+            <param name="telemetryData">The data to collect.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnParseCommandLineFailure(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.CommandLineParsingTelemetryData)">
+            <summary>
+            Collects when we fails to parse a command in the model.
+            </summary>
+            <param name="telemetryData">The data to collect.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnGeneralException(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GeneralExceptionTelemetryData)">
+            <summary>
+            Collects when there is a non-specific failure in the code.
+            </summary>
+            <remarks>
+            Use the other methods to record the exceptions in those events.
+            This is only used when it's not in any specific telemetry event.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData">
+            <summary>
+            An interface that all telemetry data class should implement.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData.CommandId">
+            <summary>
+            Gets the id to correlate events proceeding to and including a command history.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData.RequestId">
+            <summary>
+            Gets the id to correlate the request and the server.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryData.Client">
+            <summary>
+            Gets the client that makes the calls.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnGetSuggestion(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.GetSuggestionTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData.Exception">
+            <summary>
+            Gets the exception if there is an error during the operation.
+            </summary>
+            <remarks>
+            OperationCanceledException isn't considered an error.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData.#ctor(System.Exception)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ParameterMapTelemetryData" />.
+            </summary>
+            <param name="exception">The exception that is thrown if there is an error.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnRequestPrediction(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.PropertyNameHttpRequestSent">
+            <summary>
+            The telemetry property name for "HttpRequestSent".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.Commands">
+            <summary>
+            Gets the masked command lines that are used to request prediction.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.HasSentHttpRequest">
+            <summary>
+            Gets whether the http request to the service is sent.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.Exception">
+            <summary>
+            Gets the exception if there is an error during the operation.
+            </summary>
+            <remarks>
+            OperationCanceledException isn't considered an error.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData.#ctor(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Exception)">
+            <summary>
+            Creates an instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.RequestPredictionTelemetryData"/>.
+            </summary>
+            <param name="client">The client that makes the call.</param>
+            <param name="commands">The commands to request prediction for.</param>
+            <param name="hasSentHttpRequest">The flag to indicate whether the http request is canceled.</param>
+            <param name="exception">The exception that may be thrown.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnSuggestionAccepted(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData.PropertyNameAccepted">
+            <summary>
+            The telemetry property name for "Accepted".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData.Suggestion">
+            <summary>
+            Gets the suggestion that's accepted by the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData.SuggestionSessionId">
+            <summary>
+            Gets the id of the suggestion session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData.#ctor(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.UInt32,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionAcceptedTelemetryData"/>.
+            </summary>
+            <param name="client">The client that makes the call.</param>
+            <param name="suggestionSessionId">The suggestion session id.</param>
+            <param name="suggestion">The suggestion that's accepted by the user.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode">
+            <summary>
+            The enum for the mode where the suggestion is displayed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.Unknown">
+            <summary>
+            The display mode is unknown.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.ListView">
+            <summary>
+            The suggestion is displayed in a list.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.InlineView">
+            <summary>
+            The suggestion is displayed inline of the user input.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData">
+            <summary>
+            The data to collect in <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient.OnSuggestionDisplayed(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.PropertyNameDisplayed">
+            <summary>
+            The telemetry property name for "Displayed".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.Client">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#CommandId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.Microsoft#Azure#PowerShell#Tools#AzPredictor#Telemetry#ITelemetryData#RequestId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.DisplayMode">
+            <summary>
+            The mode the suggestion is displayed in.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.SuggestionCountOrIndex">
+            <summary>
+            Gets the information about the suggestions displayed to the user.
+            When <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode"/> is <see cref="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.ListView"/>, this is the number of suggestions displayed
+            on the list. When <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode"/> is <see cref="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.InlineView"/>, this is the index of the
+            suggestion displayed. There is only one suggestion display in <see cref="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.InlineView"/>.
+            All the index are zero-based.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.SuggestionSessionId">
+            <summary>
+            Gets the id of the client that makes the calls.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.#ctor(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.UInt32,Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData"/>.
+            </summary>
+            <param name="client">The client that makes the call.</param>
+            <param name="suggestionSessionId">The suggestion session id.</param>
+            <param name="displayMode">The mode the suggestion is displayed in.</param>
+            <param name="suggestionCountOrIndex">The index or count of the suggestions displayed.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.CreateForInlineView(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.UInt32,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData"/> for the suggestions displayed in
+            <see cref="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.InlineView"/>.
+            </summary>
+            <param name="client">The client that makes the call.</param>
+            <param name="suggestionSessionId">The suggestion session id.</param>
+            <param name="index">The index of the suggestion that's displayed.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData.CreateForListView(System.Management.Automation.Subsystem.Prediction.PredictionClient,System.UInt32,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayedTelemetryData"/> for the suggestions displayed in
+            <see cref="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.SuggestionDisplayMode.ListView"/>.
+            </summary>
+            <param name="client">The client that makes the call.</param>
+            <param name="suggestionSessionId">The suggestion session id.</param>
+            <param name="count">The count of the suggestions that are displayed.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.AzPredictorUtilities">
+            <summary>
+            A utility class for common methods
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.AzPredictorUtilities.RequestPredictionAndCollectTelemetryAync(Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzPredictorService,Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient,System.Management.Automation.Subsystem.Prediction.PredictionClient,System.Collections.Generic.IEnumerable{System.String},System.Threading.Tasks.TaskCompletionSource,System.Threading.CancellationToken)">
+            <summary>
+            Requests preditions and collects telemetry event.
+            </summary>
+            <param name="azPredictorService">The service to send the request.</param>
+            <param name="telemetryClient">The telemetry client to collect the data.</param>
+            <param name="predictionClient">The client that initiate the telemetry event.</param>
+            <param name="commands">A list of commands.</param>
+            <param name="telemetryWaitTask">The task to wait before we collect the telemetry data.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.CommandLineUtilities">
+            <summary>
+            A utility class for Az command line.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.CommandLineUtilities.GetCommandAst(System.String)">
+            <summary>
+            Gets the CommandAst for the whole command line.
+            </summary>
+            <param name="commandLine">The command line to get the CommandAst.</param>
+            <returns>The CommandAst.</returns>
+            <remarks>This parses the command line and returns the first one it encounters. It doesn't work well in a complex command line, for example: <c>Get-AzContext | Set-AzContext</c> will return <c>Get-AzContext</c>.</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.CommandLineUtilities.MaskCommandLine(System.String)">
+            <summary>
+            Masks the user input of any data, like names and locations.
+            Also alphabetizes the parameters to normalize them before sending
+            them to the model.
+            e.g., Get-AzContext -Name Hello -Location 'EastUS' => Get-AzContext -Location *** -Name ***
+            </summary>
+            <param name="commandLine">The command line to mask.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.CommandLineUtilities.MaskCommandLine(System.Management.Automation.Language.CommandAst)">
+            <summary>
+            Masks the user input of any data, like names and locations.
+            Also alphabetizes the parameters to normalize them before sending
+            them to the model.
+            e.g., Get-AzContext -Name Hello -Location 'EastUS' => Get-AzContext -Location *** -Name ***
+            </summary>
+            <param name="commandAst">The command to mask.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.CommandLineUtilities.EscapePredictionText(System.String)">
+            <summary>
+            Escaping the prediction text is necessary because KnowledgeBase predicted suggestions.
+            such as "&lt;PSSubnetConfig&gt;" are incorrectly identified as pipe operators.
+            </summary>
+            <param name="text">The text to escape.</param>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.CommandLineUtilities.UnescapePredictionText(System.String)">
+            <summary>
+            Unescape the prediction text from <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.CommandLineUtilities.EscapePredictionText(System.String)"/>.
+            We don't want to show the escaped one to the user.
+            </summary>
+            <param name="text">The text to unescape.</param>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.ExceptionUtilities">
+            <summary>
+            A utilities class to provide functions around exceptions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.ExceptionUtilities.RecordExceptionWrapper(Microsoft.Azure.PowerShell.Tools.AzPredictor.Telemetry.ITelemetryClient,System.Action)">
+            <summary>
+            Handles all exceptions and record it in the telemetry.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.IPowerShellRuntime">
+            <summary>
+            A PowerShell environment to run PowerShell cmdlets and scripts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.IPowerShellRuntime.DefaultRunspace">
+            <summary>
+            Gets the minimum PowerShell Runspace. This isn't the necessary the same one as the PowerShell environment that Az
+            Predictor is running on.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.IPowerShellRuntime.ConsoleRuntime">
+            <summary>
+            The PowerShell environment that the module is imported into.
+            </summary>
+            <remarks>
+            The usage of <see cref="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.IPowerShellRuntime.ConsoleRuntime"/> has to be in the context of the running PowerShell thread, for example,
+            the callback of <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.PredictorInitializer.OnImport"/>.
+            The callbacks of <see cref="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.AzPredictor"/> are on a thread pool and it must not be used there.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.IPowerShellRuntime.HostName">
+            <summary>
+            Gets the current PowerShell host name.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.IPowerShellRuntime.ExecuteScript``1(System.String)">
+            <summary>
+            Executes the PowerShell cmdlet in the current powershell session.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.JsonUtilities">
+            <summary>
+            A utility class for json serialization/deserialization.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.JsonUtilities.DefaultSerializerOptions">
+            <summary>
+            The default serialization options:
+            1. Use camel case in the naming.
+            2. Use string instead of number for enums.
+            3. Use the string values (camel case) for enum.
+            4. Use the string values for the type <see cref="T:System.Version"/> in the properties and <see cref="T:System.Collections.Generic.IDictionary`2"/> keys.
+            5. Skip the property if the value is null.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.JsonUtilities.TelemetrySerializerOptions">
+            <summary>
+            The serialization options for sending the telemetry.
+            </summary>
+            <remarks>
+            The options are based on <see cref="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.JsonUtilities.DefaultSerializerOptions"/> except:
+            1. Uses <see cref="P:System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping"/> The result is treated as a string in the
+               telemetry and we don't want to use the default encoder which escape characters such as ', ", &lt;, &gt;, +.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRunspaceUtilities">
+            <summary>
+            A provider to create runspace in PowerShell.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRunspaceUtilities.GetMinimalRunspace">
+            <summary>
+            Gets a new minimal runspace.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRunspaceUtilities.GetTestRunspace">
+            <summary>
+            Gets a new minimal runspace that's tweak for unit tests.
+            </summary>
+            <remarks>
+            This returns the runspace with ExecutionPolicy.RemoteSigned. In the unit tests, we need to load
+            the modules copied to the test folder. So RemoteSigned is required to be able to load them.
+            Other than that, the settings should be the same as <see cref="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRunspaceUtilities.GetMinimalRunspace"/>.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRuntime">
+            <summary>
+            A PowerShell environment to run PowerShell cmdlets and scripts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRuntime.DefaultRunspace">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRuntime.ConsoleRuntime">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRuntime.HostName">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRuntime.ExecuteScript``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.PowerShellRuntime.ExecuteScript``1(System.Management.Automation.PowerShell,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.TelemetryUtilities">
+            <summary>
+            A utilities class to provide functions around telemetry.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.TelemetryUtilities.TelemetryEventPrefix">
+            <summary>
+            The telemetry event prefix to use in Az.Tools.Predictor.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.TelemetryUtilities.SessionId">
+            <summary>
+            Gets the session id for the telemetry events.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.TelemetryUtilities.CreateApplicationInsightTelemetryClient">
+            <summary>
+            Creates a new instance of telemetry client.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.PowerShell.Tools.AzPredictor.Utilities.TelemetryUtilities.CreateCommonProperties(Microsoft.Azure.PowerShell.Tools.AzPredictor.IAzContext)">
+            <summary>
+            Creates common telemetry properties.
+            </summary>
+        </member>
+    </members>
+</doc>
