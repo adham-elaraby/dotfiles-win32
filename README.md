@@ -25,7 +25,7 @@ Sets up a custom ps prompt, adds autocomplete and predictions, and custom keybin
 - neofetch
 - openjdk
 - perl
-- scoop
+- neovim
 - stack
 - starship
 - sudo
@@ -48,7 +48,18 @@ Sets up a custom ps prompt, adds autocomplete and predictions, and custom keybin
 - fzf
 - Terminal-Icons (powershell)
 
-## disable WSLg (prevent Terminal loss of focus)
+## PowerShell 7
+First prompt upon launch is a stripped down version while profile loads in background, this reduces wait time.
+- `Alt+c` calls `fzf` and `Set-Location` to the chosen directory
+- `Ctrl+r` calls `fzf` on `history`
+- `Ctrl+t` calls fzf and returns the path to files and directories in prompt
+- `Tab` to Menue Complete
+- `Right` to accept prediction word by word
+- `Ctrl+b` and `Ctrl+f` to move one character back and forth
+- `Alt+b~ and `Alt+f // Right` moves one word back or forward
+
+## Arch WSL
+### disable WSLg (prevent Terminal loss of focus)
 Create .wslconfig in `%USERPROFILE%`
 
 ```
@@ -56,7 +67,7 @@ Create .wslconfig in `%USERPROFILE%`
 guiApplications=false
 ```
 
-## Arch WSL
+### Arch Setup fixes
 note that arch does not have `/usr/lib/libedit.so.2` like ubuntu and therefore we must symlink it to the correct lib to ensure intel drivers function correctly.
 
 Steps:
@@ -73,7 +84,7 @@ In my case the `libedit` package wasn't even installed yet.
 Then check to see what libedit version is available in the libs directory and symlink it eg:
 `sudo ln -sf libedit.so.0.0.72 /usr/lib/libedit.so.2`
 
-Chekc again for any unfound libraries. In mycase I still needed `intel-gmmlib` as seen by `libigdmm.so.12 (not found)`
+Check again for any unfound libraries. In mycase I still needed `intel-gmmlib` as seen by `libigdmm.so.12 (not found)`
 `sudo pacman -S intel-gmmlib`
 
 
