@@ -35,6 +35,7 @@ Sets up a custom ps prompt, adds autocomplete and predictions, and custom keybin
 - zig
 - posh-git
 - archwsl (https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/)
+- extras/carapace-bin
 
 ## Other dependencies
 - AltDrag (fork available)
