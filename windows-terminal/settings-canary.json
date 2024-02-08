@@ -4,6 +4,13 @@
     "actions": 
     [
         {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            }
+        },
+        {
             "command": "unbound",
             "keys": "ctrl+v"
         },
@@ -101,13 +108,6 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            }
-        },
-        {
-            "command": 
-            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -148,7 +148,7 @@
             "keys": "ctrl+shift+t"
         }
     ],
-    "alwaysShowNotificationIcon": true,
+    "alwaysShowNotificationIcon": false,
     "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
@@ -234,31 +234,31 @@
             },
             {
                 "guid": "{7fb9daaf-0d0b-5e05-b013-3e0a99336dc7}",
-                "hidden": false,
+                "hidden": true,
                 "name": "posh_tmux",
                 "source": "Windows.Terminal.Wsl"
             },
             {
                 "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Arch",
                 "source": "Windows.Terminal.Wsl"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
             },
             {
                 "guid": "{b2b8073d-7350-5f94-a0a7-385a5ea89990}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "guid": "{71eb5ea4-116c-50c4-9e86-8eea70ea784e}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
