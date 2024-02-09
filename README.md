@@ -99,6 +99,9 @@ You can try enable gpedit through the `gpedit-enabler.bat` script in Scripts
 ## tmux container for PowerShell
 we will run an alpine wsl container, that will only host a tmux session, and then launch a Powershell Instance on it, this will allow us to use powershell and arch wsl on an independant tmux process.
 
+![Tmux-Scratchpad](https://github.com/adham-elaraby/dotfiles-win32/assets/63326537/77d39a4f-adf6-4483-89c0-914b84731480)
+
+
 ### Setup
 - Install Windows Subsystem for Linux, and set to WSL 1 for speed improvements.
 - Install the Alpine Linux distribution. I use this as the base for the tmux feature, since it has very low overhead (less than 12MB, including tmux).
