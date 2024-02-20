@@ -18,6 +18,7 @@ Sets up a custom ps prompt, adds autocomplete and predictions, and custom keybin
 - git
 - innounp
 - lf
+- bat
 - llvm
 - make
 - mkvtoolnix
