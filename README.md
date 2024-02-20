@@ -21,6 +21,7 @@ Sets up a custom ps prompt, adds autocomplete and predictions, and custom keybin
 - bat
 - less
 - ntop
+- eza
 - llvm
 - make
 - mkvtoolnix
